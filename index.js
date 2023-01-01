@@ -41,7 +41,7 @@ const ACTIONS = [
 // Initialize an ApolloGateway instance and pass it
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: "delivery", url: "http://138.68.122.181:4001/" },
+    { name: "delivery", url: "http://10.245.132.173:4001/" },
     { name: "menu", url: "http://188.166.200.202:4001/" },
     // ...additional services...
   ],
@@ -55,12 +55,9 @@ const gateway = new ApolloGateway({
       // check if context.introspect is in PUBLIC_ACTIONS if it is JWTverify the token
       if (ACTIONS.includes(context.introspect)) {
         const decodeToken = JWTverify(context.token, secret);
-        console.log("decodeToken", decodeToken);
         request.http.headers.set("userId", decodeToken._id);
         request.http.headers.set("userRole", decodeToken.role);
       }
-
-      console.log("intro");
 
       console.log(context.introspect);
     };
