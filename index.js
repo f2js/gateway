@@ -42,7 +42,7 @@ const ACTIONS = [
 const gateway = new ApolloGateway({
   serviceList: [
     { name: "delivery", url: "http://10.245.20.204:4001/" },
-    { name: "menu", url: "http://188.166.200.202:4001/" },
+    { name: "menu", url: "http://10.245.20.204:4001/" },
     // ...additional services...
   ],
   // Pass the JWT token for authentication
